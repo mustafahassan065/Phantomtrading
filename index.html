@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phantom Trading | Master Institutional Supply & Demand</title>
-    <meta name="description" content="Stop trading like retail. Learn Smart Money Concepts, pass prop firm challenges, and join the elite Phantom Trading community to get funded.">
+    <title>Phantom Trading | Master Institutional Smart Money Concepts</title>
+    <meta name="description" content="Stop trading like retail. Master Supply & Demand, get prop firm funded, and join the elite Phantom Trading community today.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -12,46 +12,55 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        display: ['Syncopate', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
                         phantom: {
-                            bg: '#050B14',
-                            surface: '#0A1324',
-                            panel: '#101C32',
-                            border: '#1E2D4A',
-                            cyan: '#00F0FF',
-                            cyanDark: '#0097B2',
-                            blue: '#0057FF',
-                            accent: '#38BDF8'
+                            base: '#020617',       /* Deep Slate/Midnight */
+                            surface: '#0F172A',    /* Raised Surface */
+                            panel: '#1E293B',      /* Panel Background */
+                            border: '#334155',     /* Subtle Borders */
+                            borderHl: '#475569',   /* Highlight Borders */
+                            cyan: '#06B6D4',       /* Phantom Neon Cyan */
+                            blue: '#3B82F6',       /* Phantom Deep Blue */
+                            indigo: '#6366F1',     /* Accent Indigo */
+                            text: '#94A3B8',       /* Muted Text */
+                            white: '#F8FAFC',
+                            bull: '#10B981',       /* Bullish Green */
+                            bear: '#EF4444'        /* Bearish Red */
                         }
                     },
                     animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 7s ease-in-out infinite',
-                        'scroll': 'scroll 40s linear infinite',
-                        'glow-line': 'glowLine 3s ease-in-out infinite alternate',
+                        'pulse-glow': 'pulseGlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'marquee': 'marquee 30s linear infinite',
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'float-fast': 'float 3s ease-in-out infinite',
+                        'data-stream': 'dataStream 20s linear infinite',
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-15px)' },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.1, transform: 'scale(1)' },
+                            '50%': { opacity: 0.3, transform: 'scale(1.05)' },
                         },
-                        scroll: {
+                        marquee: {
                             '0%': { transform: 'translateX(0)' },
                             '100%': { transform: 'translateX(-50%)' },
                         },
-                        glowLine: {
-                            '0%': { opacity: 0.3, boxShadow: '0 0 10px rgba(0, 240, 255, 0.2)' },
-                            '100%': { opacity: 1, boxShadow: '0 0 30px rgba(0, 240, 255, 0.8), 0 0 50px rgba(0, 87, 255, 0.5)' },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        dataStream: {
+                            '0%': { transform: 'translateY(0)' },
+                            '100%': { transform: 'translateY(-50%)' },
                         }
                     }
                 }
@@ -60,338 +69,415 @@
     </script>
     
     <style>
-        body { background-color: #050B14; color: #F8FAFC; overflow-x: hidden; }
-        .glass-ui { background: rgba(10, 19, 36, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .glass-card { background: linear-gradient(145deg, rgba(16, 28, 50, 0.8) 0%, rgba(10, 19, 36, 0.4) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(0, 240, 255, 0.1); }
-        .text-gradient-cyan { background: linear-gradient(to right, #00F0FF, #0057FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .bg-gradient-btn { background: linear-gradient(90deg, #0057FF 0%, #00F0FF 100%); }
-        .hover-glow-cyan:hover { box-shadow: 0 0 30px rgba(0, 240, 255, 0.4); text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+        body { background-color: #020617; color: #F8FAFC; overflow-x: hidden; }
         
-        /* Tech Grid Background */
-        .bg-tech-grid {
+        /* Glassmorphism Utilities */
+        .glass-panel { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: linear-gradient(145deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); border: 1px solid rgba(6, 182, 212, 0.15); transition: all 0.3s ease; }
+        .glass-card:hover { border-color: rgba(6, 182, 212, 0.5); transform: translateY(-3px); box-shadow: 0 10px 40px rgba(6, 182, 212, 0.2); }
+        
+        /* Typography Gradients */
+        .text-gradient-cyan { background: linear-gradient(135deg, #22D3EE 0%, #06B6D4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient-blue { background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Custom Buttons */
+        .btn-cyan { background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%); color: #020617; position: relative; overflow: hidden; z-index: 1; transition: all 0.3s ease; font-weight: 800; }
+        .btn-cyan::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: all 0.5s ease; z-index: -1; }
+        .btn-cyan:hover::after { left: 100%; }
+        .btn-cyan:hover { box-shadow: 0 0 25px rgba(6, 182, 212, 0.5); transform: translateY(-2px); }
+
+        .btn-outline { border: 1px solid rgba(6, 182, 212, 0.3); color: #F8FAFC; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .btn-outline:hover { border-color: #06B6D4; background: rgba(6, 182, 212, 0.05); box-shadow: 0 0 20px rgba(6, 182, 212, 0.1); }
+        
+        /* Topographic / Network Background */
+        .bg-grid-tech {
             background-image: 
-                linear-gradient(to right, rgba(30, 45, 74, 0.1) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(30, 45, 74, 0.1) 1px, transparent 1px);
+                linear-gradient(to right, rgba(51, 65, 85, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(51, 65, 85, 0.2) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
-        /* Custom Scrollbar */
+        /* Scrollbars */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050B14; }
-        ::-webkit-scrollbar-thumb { background: #1E2D4A; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #00F0FF; }
-        
-        /* Hide number input spinners */
-        input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; border-left: 1px solid #020617; }
+        ::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
+
+        /* Range Slider Styling */
+        input[type=range] { -webkit-appearance: none; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #06B6D4; cursor: pointer; margin-top: -8px; box-shadow: 0 0 10px rgba(6,182,212,0.5); }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: #334155; border-radius: 2px; }
+
+        /* Accordion transition */
+        .accordion-content { transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; }
     </style>
 </head>
-<body class="antialiased selection:bg-phantom-cyan selection:text-black font-sans">
+<body class="antialiased selection:bg-phantom-cyan selection:text-phantom-base">
 
-    <nav x-data="{ mobileMenu: false }" class="fixed w-full z-50 glass-ui border-b border-phantom-border transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center gap-3">
-                    <svg class="w-10 h-10 text-phantom-cyan" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 5L95 30V70L50 95L5 70V30L50 5Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-                        <path d="M50 5V45M95 30L50 45M5 30L50 45M50 45V95M95 70L50 45M5 70L50 45" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                        <circle cx="50" cy="45" r="5" fill="currentColor"/>
-                    </svg>
-                    <span class="font-display font-bold text-xl tracking-widest text-white uppercase">
-                        Phantom <br><span class="text-[10px] tracking-[0.3em] text-phantom-cyan leading-none">Trading</span>
-                    </span>
+    <div class="bg-gradient-to-r from-phantom-blue to-phantom-cyan text-phantom-base font-sans text-xs md:text-sm font-bold py-2.5 text-center relative z-50 tracking-wide">
+        <span class="inline-block w-2 h-2 rounded-full bg-phantom-base animate-pulse mr-2"></span>
+        Q1 Prop Firm Funding Bootcamp is Live. Secure your All-Access membership today.
+    </div>
+
+    <nav x-data="{ scrolled: false, mobileMenu: false }" 
+         @scroll.window="scrolled = (window.pageYOffset > 20)" 
+         :class="{'bg-phantom-base/90 backdrop-blur-xl border-b border-phantom-border shadow-2xl': scrolled, 'bg-transparent border-transparent': !scrolled}"
+         class="fixed w-full z-40 transition-all duration-300 top-[40px]">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+                    <div class="w-12 h-12 relative flex items-center justify-center bg-phantom-surface rounded-xl border border-phantom-border group-hover:border-phantom-cyan transition-colors shadow-lg overflow-hidden">
+                        <div class="absolute inset-0 bg-phantom-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <svg class="w-7 h-7 text-phantom-cyan" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22L2 12L12 2L22 12L12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 16L6 12L12 8L18 12L12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-bold text-2xl tracking-wide text-white uppercase leading-none">Phantom</span>
+                        <span class="font-sans text-[10px] tracking-[0.2em] text-phantom-text uppercase mt-1 font-bold">Trading Hub</span>
+                    </div>
                 </div>
                 
                 <div class="hidden lg:flex items-center space-x-10">
-                    <a href="#methodology" class="text-sm font-bold text-gray-400 hover:text-white transition-colors uppercase tracking-widest">Methodology</a>
-                    <a href="#features" class="text-sm font-bold text-gray-400 hover:text-white transition-colors uppercase tracking-widest">Curriculum</a>
-                    <a href="#calculator" class="text-sm font-bold text-gray-400 hover:text-white transition-colors uppercase tracking-widest">Prop Firms</a>
-                    <a href="#pricing" class="bg-gradient-btn text-white font-display font-bold text-xs uppercase tracking-widest px-8 py-3 rounded-sm transition-all hover-glow-cyan transform hover:scale-105">
-                        Join All Access
-                    </a>
+                    <a href="#philosophy" class="font-sans text-xs font-bold text-phantom-text hover:text-white transition-colors uppercase tracking-widest">Philosophy</a>
+                    <a href="#curriculum" class="font-sans text-xs font-bold text-phantom-text hover:text-white transition-colors uppercase tracking-widest">Curriculum</a>
+                    <a href="#calculator" class="font-sans text-xs font-bold text-phantom-text hover:text-white transition-colors uppercase tracking-widest">Funding Tool</a>
+                    <a href="#proof" class="font-sans text-xs font-bold text-phantom-text hover:text-white transition-colors uppercase tracking-widest">Funded Traders</a>
+                    
+                    <div class="pl-8 border-l border-phantom-border flex items-center gap-6">
+                        <a href="#pricing" class="btn-cyan font-sans text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded-lg shadow-[0_0_20px_rgba(6,182,212,0.2)]">
+                            Join All Access
+                        </a>
+                    </div>
                 </div>
 
                 <div class="lg:hidden flex items-center">
-                    <button @click="mobileMenu = !mobileMenu" class="text-gray-300 hover:text-phantom-cyan focus:outline-none">
+                    <button @click="mobileMenu = !mobileMenu" class="text-phantom-text hover:text-phantom-cyan focus:outline-none">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path x-show="!mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            <path x-show="mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" style="display: none;"/>
+                            <path x-show="!mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+                            <path x-show="mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" style="display: none;"/>
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div x-show="mobileMenu" x-collapse class="lg:hidden bg-phantom-surface border-t border-phantom-border">
-            <div class="px-4 pt-4 pb-6 space-y-2">
-                <a href="#methodology" @click="mobileMenu = false" class="block px-3 py-3 text-sm font-bold uppercase tracking-widest text-gray-300 hover:text-white hover:bg-phantom-panel">Methodology</a>
-                <a href="#features" @click="mobileMenu = false" class="block px-3 py-3 text-sm font-bold uppercase tracking-widest text-gray-300 hover:text-white hover:bg-phantom-panel">Course Curriculum</a>
-                <a href="#pricing" @click="mobileMenu = false" class="block px-3 py-4 mt-4 text-center text-sm font-display font-bold uppercase tracking-widest text-white bg-phantom-blue rounded-sm">Get Funded Now</a>
+        <div x-show="mobileMenu" x-collapse class="lg:hidden bg-phantom-surface border-t border-phantom-border shadow-2xl absolute w-full h-screen">
+            <div class="px-6 pt-8 pb-12 space-y-2">
+                <a href="#philosophy" @click="mobileMenu = false" class="block px-4 py-4 font-sans text-sm font-bold uppercase tracking-widest text-phantom-text hover:text-white border-b border-phantom-border">The Philosophy</a>
+                <a href="#curriculum" @click="mobileMenu = false" class="block px-4 py-4 font-sans text-sm font-bold uppercase tracking-widest text-phantom-text hover:text-white border-b border-phantom-border">SMC Curriculum</a>
+                <a href="#calculator" @click="mobileMenu = false" class="block px-4 py-4 font-sans text-sm font-bold uppercase tracking-widest text-phantom-text hover:text-white border-b border-phantom-border">Funding Calculator</a>
+                <a href="#proof" @click="mobileMenu = false" class="block px-4 py-4 font-sans text-sm font-bold uppercase tracking-widest text-phantom-text hover:text-white">Funded Proof</a>
+                <a href="#pricing" @click="mobileMenu = false" class="block px-4 py-4 mt-8 text-center font-bold text-sm uppercase tracking-widest text-phantom-base bg-phantom-cyan rounded-lg">
+                    Initialize Access
+                </a>
             </div>
         </div>
     </nav>
 
-    <section class="relative pt-32 pb-20 lg:pt-56 lg:pb-40 overflow-hidden bg-tech-grid border-b border-phantom-border/50">
-        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-phantom-blue/10 rounded-full blur-[150px] animate-pulse-slow"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-phantom-cyan/10 rounded-full blur-[120px] animate-pulse-slow" style="animation-delay: 2s;"></div>
-            <svg class="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[800px] opacity-[0.03]" viewBox="0 0 500 800" fill="none">
-                <rect x="50" y="300" width="20" height="200" fill="#fff"/>
-                <rect x="58" y="250" width="4" height="300" fill="#fff"/>
-                <rect x="150" y="150" width="20" height="180" fill="#fff"/>
-                <rect x="158" y="100" width="4" height="280" fill="#fff"/>
-                <rect x="250" y="400" width="20" height="150" fill="#fff"/>
-                <rect x="258" y="350" width="4" height="250" fill="#fff"/>
-                <rect x="350" y="200" width="20" height="250" fill="#fff"/>
-                <rect x="358" y="150" width="4" height="350" fill="#fff"/>
-            </svg>
-        </div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-16 items-center">
-            
-            <div class="lg:col-span-7 text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-sm border border-phantom-cyan/30 bg-phantom-cyan/10 text-phantom-cyan font-bold mb-8 text-xs uppercase tracking-widest backdrop-blur-md">
-                    <span class="w-2 h-2 rounded-full bg-phantom-cyan animate-pulse"></span>
-                    The Elite Smart Money Community
-                </div>
-                
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight tracking-tight text-white uppercase">
-                    Stop Trading <br>Like Retail. <br>
-                    <span class="text-gradient-cyan">Trade Like The Banks.</span>
-                </h1>
-                
-                <p class="mt-8 text-xl text-gray-400 font-medium leading-relaxed max-w-2xl">
-                    Retail concepts (trendlines, RSI, MACD) are designed to make you liquidity for institutional algorithms. Phantom Trading teaches you exact Supply & Demand and Smart Money Concepts to pass prop firm challenges and achieve consistent profitability.
-                </p>
-                
-                <div class="mt-12 flex flex-col sm:flex-row gap-5">
-                    <a href="https://whop.com/ptmtrading/phantomtrading?a=digitalartlab" target="_blank" class="inline-flex items-center justify-center px-10 py-5 text-sm font-display font-bold uppercase tracking-widest rounded-sm text-white bg-gradient-btn hover-glow-cyan transition-all transform hover:-translate-y-1">
-                        Get All Access ($99/mo)
-                    </a>
-                    <a href="#pricing" class="inline-flex items-center justify-center px-10 py-5 text-sm font-display font-bold uppercase tracking-widest rounded-sm text-white border border-phantom-border hover:bg-phantom-surface hover:border-phantom-cyan transition-all">
-                        View Pricing Plans
-                    </a>
-                </div>
-                
-                <div class="mt-14 pt-8 border-t border-phantom-border grid grid-cols-3 gap-6">
-                    <div>
-                        <p class="text-3xl font-display font-bold text-white mb-1">5K+</p>
-                        <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Active Traders</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-display font-bold text-phantom-cyan mb-1">$10M+</p>
-                        <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">In Funded Accounts</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-display font-bold text-white mb-1">24/7</p>
-                        <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Chart Support</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lg:col-span-5 relative hidden lg:block animate-float">
-                <div class="glass-card rounded-xl p-6 shadow-[0_0_50px_rgba(0,87,255,0.2)] border-t border-l border-phantom-cyan/30 relative overflow-hidden">
-                    <div class="flex items-center gap-2 mb-6 border-b border-phantom-border pb-4">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                        <div class="ml-4 text-xs font-mono text-gray-500">PTM_Algorithmic_Terminal_v2.0</div>
-                    </div>
-                    
-                    <div class="relative h-64 border-b border-l border-phantom-border mb-4">
-                        <div class="absolute w-full h-px bg-phantom-border top-1/4"></div>
-                        <div class="absolute w-full h-px bg-phantom-border top-2/4"></div>
-                        <div class="absolute w-full h-px bg-phantom-border top-3/4"></div>
-                        
-                        <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-                            <g class="text-red-500" stroke="currentColor" fill="currentColor">
-                                <rect x="10%" y="20%" width="4%" height="30%"/>
-                                <line x1="12%" y1="10%" x2="12%" y2="60%" stroke-width="2"/>
-                                
-                                <rect x="30%" y="40%" width="4%" height="20%"/>
-                                <line x1="32%" y1="20%" x2="32%" y2="70%" stroke-width="2"/>
-                            </g>
-                            <g class="text-phantom-cyan" stroke="currentColor" fill="currentColor">
-                                <rect x="50%" y="30%" width="4%" height="40%"/>
-                                <line x1="52%" y1="15%" x2="52%" y2="80%" stroke-width="2"/>
-                                
-                                <rect x="70%" y="10%" width="4%" height="35%"/>
-                                <line x1="72%" y1="5%" x2="72%" y2="50%" stroke-width="2"/>
-                                
-                                <rect x="90%" y="20%" width="4%" height="25%"/>
-                                <line x1="92%" y1="10%" x2="92%" y2="55%" stroke-width="2"/>
-                            </g>
-                            
-                            <rect x="65%" y="50%" width="30%" height="30%" fill="rgba(0, 240, 255, 0.1)" stroke="rgba(0, 240, 255, 0.5)" stroke-width="1" stroke-dasharray="4"/>
-                            <text x="68%" y="75%" fill="#00F0FF" font-family="monospace" font-size="10">Demand Zone (OB)</text>
-                        </svg>
-                    </div>
-                    
-                    <div class="space-y-2 font-mono text-xs">
-                        <div class="flex justify-between text-gray-400">
-                            <span>[08:14:22] scanning liquidity...</span>
-                            <span class="text-phantom-cyan">OK</span>
-                        </div>
-                        <div class="flex justify-between text-gray-400">
-                            <span>[08:15:01] sweeping retail stops (BSL)</span>
-                            <span class="text-phantom-cyan">DETECTED</span>
-                        </div>
-                        <div class="flex justify-between text-white font-bold">
-                            <span>[08:15:30] EXECUTING SHORT ENTRY</span>
-                            <span class="text-green-400">FILLED @ 1.08450</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-    <div class="bg-phantom-panel py-4 border-b border-phantom-border overflow-hidden relative flex">
+    <div class="relative top-[136px] bg-phantom-panel border-b border-phantom-border py-2.5 overflow-hidden z-30 shadow-lg hidden md:block">
         <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-phantom-panel to-transparent z-10"></div>
         <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-phantom-panel to-transparent z-10"></div>
         
-        <div class="flex whitespace-nowrap animate-scroll items-center font-display font-bold uppercase tracking-widest text-xs text-gray-400">
-            <span class="mx-8 flex items-center gap-3"><svg class="w-4 h-4 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> JOHN M. PASSED $100K FTMO</span>
-            <span class="mx-8 flex items-center gap-3 text-white"><span class="text-green-500">+$8,450</span> PROFIT SPLIT SECURED</span>
-            <span class="mx-8 flex items-center gap-3"><svg class="w-4 h-4 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> SARAH T. PASSED $200K FUNDED ENGINEER</span>
-            <span class="mx-8 flex items-center gap-3 text-white"><span class="text-green-500">+$12,200</span> PROFIT SPLIT SECURED</span>
-            <span class="mx-8 flex items-center gap-3"><svg class="w-4 h-4 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> ALEX K. PASSED $50K MFF</span>
-            
-            <span class="mx-8 flex items-center gap-3"><svg class="w-4 h-4 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> JOHN M. PASSED $100K FTMO</span>
-            <span class="mx-8 flex items-center gap-3 text-white"><span class="text-green-500">+$8,450</span> PROFIT SPLIT SECURED</span>
-            <span class="mx-8 flex items-center gap-3"><svg class="w-4 h-4 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> SARAH T. PASSED $200K FUNDED ENGINEER</span>
-            <span class="mx-8 flex items-center gap-3 text-white"><span class="text-green-500">+$12,200</span> PROFIT SPLIT SECURED</span>
-            <span class="mx-8 flex items-center gap-3"><svg class="w-4 h-4 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> ALEX K. PASSED $50K MFF</span>
+        <div class="whitespace-nowrap flex items-center animate-marquee font-sans tracking-[0.2em] text-xs uppercase font-bold text-phantom-text">
+            <span class="mx-8 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-phantom-cyan"></span> NEW $100K FTMO PASS SECURED</span>
+            <span class="mx-8 text-phantom-border">|</span>
+            <span class="mx-8 flex items-center gap-2 text-white">🔥 EU SESSION: EURUSD +4.5R SHORT</span>
+            <span class="mx-8 text-phantom-border">|</span>
+            <span class="mx-8 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-phantom-blue"></span> LIVE CHART MARKUPS POSTED</span>
+            <span class="mx-8 text-phantom-border">|</span>
+            <span class="mx-8 flex items-center gap-2 text-white">💰 1-ON-1 COACHING SPOTS FILLING FAST</span>
+            <span class="mx-8 text-phantom-border">|</span>
+            <span class="mx-8 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-phantom-cyan"></span> NEW $100K FTMO PASS SECURED</span>
+            <span class="mx-8 text-phantom-border">|</span>
+            <span class="mx-8 flex items-center gap-2 text-white">🔥 EU SESSION: EURUSD +4.5R SHORT</span>
+            <span class="mx-8 text-phantom-border">|</span>
+            <span class="mx-8 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-phantom-blue"></span> LIVE CHART MARKUPS POSTED</span>
+            <span class="mx-8 text-phantom-border">|</span>
+            <span class="mx-8 flex items-center gap-2 text-white">💰 1-ON-1 COACHING SPOTS FILLING FAST</span>
         </div>
     </div>
 
-    <section id="methodology" class="py-24 bg-phantom-bg relative border-b border-phantom-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-4xl mx-auto mb-20">
-                <h2 class="text-sm font-bold text-phantom-cyan tracking-widest uppercase mb-4">The Matrix of Trading</h2>
-                <h3 class="text-4xl md:text-5xl font-display font-bold mb-6 uppercase">Why 95% of Traders Blow Their Accounts.</h3>
-                <p class="text-xl text-gray-400 leading-relaxed">The trading education industry lied to you. They teach you patterns that banks use as liquidity targets. If you are drawing diagonal lines, you are the liquidity.</p>
+    <section class="relative pt-44 pb-24 lg:pt-60 lg:pb-32 overflow-hidden bg-grid-tech border-b border-phantom-border">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-phantom-base via-transparent to-phantom-base opacity-90"></div>
+            <div class="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-phantom-blue/10 rounded-full blur-[150px] animate-pulse-glow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-phantom-cyan/10 rounded-full blur-[120px] animate-pulse-glow" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-16 items-center">
+            
+            <div class="lg:col-span-6 lg:pr-8 text-left">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-phantom-cyan/30 bg-phantom-cyan/5 font-sans text-xs font-bold text-phantom-cyan mb-8 tracking-widest uppercase backdrop-blur-md">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    Smart Money Concepts (SMC)
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-[1.05] tracking-tight text-white">
+                    Trade The <span class="text-gradient-cyan">Banks.</span><br>
+                    Not The Retail Trap.
+                </h1>
+                
+                <p class="mt-6 text-lg text-phantom-text font-light leading-relaxed max-w-2xl">
+                    Retail concepts are designed to fail. Phantom Trading equips you with institutional Supply & Demand strategies, deep liquidity concepts, and the exact psychological framework needed to pass 6-figure prop firm challenges.
+                </p>
+                
+                <div class="mt-10 flex flex-col sm:flex-row gap-5">
+                    <a href="#pricing" class="inline-flex items-center justify-center px-10 py-4 text-sm font-bold uppercase tracking-widest rounded-lg btn-cyan">
+                        Join All Access ($99/mo)
+                    </a>
+                    <a href="#curriculum" class="inline-flex items-center justify-center px-10 py-4 text-sm font-bold uppercase tracking-widest rounded-lg btn-outline">
+                        Explore Strategy
+                    </a>
+                </div>
+                
+                <div class="mt-14 pt-8 border-t border-phantom-border grid grid-cols-3 gap-6 font-sans text-xs text-phantom-text uppercase tracking-widest font-semibold">
+                    <div>
+                        <p class="text-2xl font-display font-bold text-white mb-1">5,000+</p>
+                        <p class="text-[9px]">Active Traders</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-display font-bold text-phantom-cyan mb-1">$25M+</p>
+                        <p class="text-[9px]">Prop Firm Funded</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-display font-bold text-white mb-1">24/7</p>
+                        <p class="text-[9px]">Market Support</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="bg-phantom-panel border-2 border-red-900/50 rounded-xl p-10 relative opacity-80">
-                    <div class="absolute -top-5 left-10 bg-red-900 text-white font-display text-xs uppercase tracking-widest px-4 py-2 font-bold">The Retail Trap (Losers)</div>
-                    <ul class="space-y-6 mt-4">
+            <div class="lg:col-span-6 relative hidden lg:block animate-float-slow">
+                <div class="absolute inset-0 bg-gradient-to-tr from-phantom-blue/20 to-phantom-cyan/10 rounded-2xl transform rotate-2 blur-2xl"></div>
+                
+                <div class="glass-card rounded-2xl p-2 relative z-10 w-full bg-phantom-base border border-phantom-border shadow-2xl">
+                    <div class="flex justify-between items-center bg-phantom-surface border-b border-phantom-border px-4 py-3 rounded-t-xl">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-phantom-borderHl"></div>
+                            <div class="w-3 h-3 rounded-full bg-phantom-borderHl"></div>
+                            <div class="w-3 h-3 rounded-full bg-phantom-borderHl"></div>
+                        </div>
+                        <div class="flex items-center gap-4 font-sans text-xs font-bold text-phantom-text">
+                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-phantom-cyan"></span> EURUSD</span>
+                            <span>15m</span>
+                            <span>OANDA</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <div class="w-4 h-4 rounded-sm bg-phantom-border"></div>
+                            <div class="w-4 h-4 rounded-sm bg-phantom-border"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-phantom-base p-4 rounded-b-xl relative h-[400px] w-full overflow-hidden flex">
+                        
+                        <div class="w-12 h-full border-r border-phantom-border flex flex-col justify-between text-[9px] text-phantom-borderHl font-mono pr-2 text-right pt-2 pb-6">
+                            <span>1.0850</span>
+                            <span>1.0840</span>
+                            <span>1.0830</span>
+                            <span class="text-phantom-cyan">1.0820</span>
+                            <span>1.0810</span>
+                            <span>1.0800</span>
+                        </div>
+
+                        <div class="flex-1 relative">
+                            <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+                                <div class="w-full h-px bg-phantom-border opacity-50"></div>
+                                <div class="w-full h-px bg-phantom-border opacity-50"></div>
+                                <div class="w-full h-px bg-phantom-border opacity-50"></div>
+                                <div class="w-full h-px bg-phantom-cyan opacity-30 border-dashed border-t"></div>
+                                <div class="w-full h-px bg-phantom-border opacity-50"></div>
+                                <div class="w-full h-px bg-phantom-border opacity-50"></div>
+                            </div>
+                            
+                            <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 500 300">
+                                
+                                <rect x="50" y="220" width="400" height="40" fill="rgba(6, 182, 212, 0.1)" stroke="#06B6D4" stroke-width="1" stroke-dasharray="4 4"/>
+                                <text x="60" y="245" fill="#06B6D4" font-family="sans-serif" font-size="10" font-weight="bold">15M DEMAND (HTF POI)</text>
+                                
+                                <path d="M 150 180 L 250 180" stroke="#EF4444" stroke-width="1" stroke-dasharray="2 2"/>
+                                <text x="160" y="175" fill="#EF4444" font-family="sans-serif" font-size="10">SELL-SIDE LIQUIDITY (SSL)</text>
+
+                                <g stroke-width="1.5">
+                                    <line x1="80" y1="50" x2="80" y2="120" stroke="#EF4444"/><rect x="76" y="60" width="8" height="50" fill="#EF4444"/>
+                                    <line x1="120" y1="90" x2="120" y2="160" stroke="#EF4444"/><rect x="116" y="100" width="8" height="40" fill="#EF4444"/>
+                                    <line x1="160" y1="130" x2="160" y2="190" stroke="#EF4444"/><rect x="156" y="140" width="8" height="30" fill="#EF4444"/>
+                                    <line x1="200" y1="150" x2="200" y2="250" stroke="#EF4444"/><rect x="196" y="160" width="8" height="80" fill="#EF4444"/>
+                                    <line x1="240" y1="180" x2="240" y2="260" stroke="#10B981"/><rect x="236" y="190" width="8" height="60" fill="#10B981"/>
+                                    
+                                    <circle cx="240" cy="240" r="4" fill="#06B6D4"/>
+                                    <path d="M 245 240 L 280 240 L 300 220" fill="none" stroke="#06B6D4" stroke-width="1.5"/>
+                                    <rect x="300" y="205" width="80" height="25" rx="4" fill="#0F172A" stroke="#06B6D4"/>
+                                    <text x="340" y="222" fill="#06B6D4" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">SNIPER ENTRY</text>
+
+                                    <line x1="280" y1="120" x2="280" y2="200" stroke="#10B981"/><rect x="276" y="130" width="8" height="50" fill="#10B981"/>
+                                    <line x1="320" y1="80" x2="320" y2="140" stroke="#10B981"/><rect x="316" y="90" width="8" height="40" fill="#10B981"/>
+                                    <line x1="360" y1="40" x2="360" y2="100" stroke="#10B981"/><rect x="356" y="50" width="8" height="40" fill="#10B981"/>
+                                </g>
+                                
+                                <rect x="240" y="250" width="100" height="20" fill="rgba(239, 68, 68, 0.2)" stroke="#EF4444" stroke-width="0.5"/>
+                                <rect x="240" y="50" width="100" height="200" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="0.5"/>
+                                <text x="290" y="150" fill="#10B981" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">1:10 RR</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="philosophy" class="py-24 bg-phantom-surface relative border-b border-phantom-border overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2000')] bg-cover bg-center opacity-[0.03] mix-blend-luminosity"></div>
+        
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto mb-20">
+                <h2 class="font-sans text-sm font-bold text-phantom-cyan tracking-widest uppercase mb-4">The Retail Trap</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-bold mb-6 text-white leading-tight">Why 95% of Traders <span class="text-phantom-borderHl line-through">Fail.</span></h3>
+                <p class="text-lg text-phantom-text leading-relaxed">The trading education industry lied to you. They teach you patterns that banks and algorithms use specifically as liquidity targets to fill their massive orders.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-0 border border-phantom-border rounded-xl overflow-hidden shadow-2xl">
+                
+                <div class="bg-phantom-base p-10 md:p-14 border-b lg:border-b-0 lg:border-r border-phantom-border relative opacity-90">
+                    <div class="w-12 h-12 bg-red-500/10 text-red-500 rounded-lg flex items-center justify-center mb-8 border border-red-500/20">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+                    </div>
+                    <h4 class="font-display font-bold text-2xl text-white mb-3">Retail Trading</h4>
+                    <p class="text-sm text-phantom-text mb-8">What YouTube gurus teach you to do.</p>
+                    <ul class="space-y-6 text-sm text-gray-400">
                         <li class="flex items-start gap-4">
-                            <svg class="w-8 h-8 text-red-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span class="text-red-500 font-bold mt-0.5">✗</span> 
                             <div>
-                                <h4 class="text-white font-bold text-lg mb-1">Relying on Lagging Indicators</h4>
-                                <p class="text-gray-400 text-sm">MACD, RSI, and moving averages tell you what already happened, not what institutional algorithms are doing next.</p>
+                                <strong class="text-white block mb-1">Lagging Indicators</strong>
+                                Relying on RSI, MACD, and Moving Averages. These tell you what already happened, not what algorithms will do next.
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <svg class="w-8 h-8 text-red-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span class="text-red-500 font-bold mt-0.5">✗</span> 
                             <div>
-                                <h4 class="text-white font-bold text-lg mb-1">Trading Chart Patterns & Trendlines</h4>
-                                <p class="text-gray-400 text-sm">Double tops, head and shoulders, and trendlines are engineered to build up retail stop losses so banks can sweep them.</p>
+                                <strong class="text-white block mb-1">Retail Chart Patterns</strong>
+                                Trading "Double Tops" and "Flags." Institutions see these patterns and intentionally hunt the stop losses placed above them.
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <svg class="w-8 h-8 text-red-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span class="text-red-500 font-bold mt-0.5">✗</span> 
                             <div>
-                                <h4 class="text-white font-bold text-lg mb-1">Emotional Risk Management</h4>
-                                <p class="text-gray-400 text-sm">Revenge trading, risking 10% per trade, and moving stop losses. The fastest way to fail a prop firm challenge.</p>
+                                <strong class="text-white block mb-1">Emotional Risk Management</strong>
+                                Revenge trading, risking 10% per trade, and moving stop losses to avoid taking a hit. The fastest way to blow an account.
                             </div>
                         </li>
                     </ul>
                 </div>
 
-                <div class="glass-card border-2 border-phantom-cyan rounded-xl p-10 relative transform md:-translate-y-4 shadow-[0_0_40px_rgba(0,240,255,0.15)]">
-                    <div class="absolute -top-5 left-10 bg-gradient-btn text-white font-display text-xs uppercase tracking-widest px-4 py-2 font-bold shadow-lg">The Phantom Edge (Winners)</div>
-                    <ul class="space-y-6 mt-4">
+                <div class="bg-phantom-panel p-10 md:p-14 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-phantom-cyan/5 rounded-full blur-[80px]"></div>
+                    <div class="w-12 h-12 bg-phantom-cyan/10 text-phantom-cyan rounded-lg flex items-center justify-center mb-8 border border-phantom-cyan/20">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                    </div>
+                    <h4 class="font-display font-bold text-2xl text-white mb-3">Phantom Trading (SMC)</h4>
+                    <p class="text-sm text-phantom-cyan mb-8">How banks and hedge funds actually operate.</p>
+                    <ul class="space-y-6 text-sm text-gray-300 relative z-10">
                         <li class="flex items-start gap-4">
-                            <svg class="w-8 h-8 text-phantom-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span class="text-phantom-cyan font-bold mt-0.5">✓</span> 
                             <div>
-                                <h4 class="text-white font-bold text-lg mb-1">Supply & Demand Zones (S&D)</h4>
-                                <p class="text-gray-300 text-sm">We identify massive institutional footprints (Order Blocks) where banks entered the market, and trade the retests.</p>
+                                <strong class="text-white block mb-1">Supply & Demand Zones</strong>
+                                Identifying massive institutional footprints (Order Blocks) where banks entered the market, and taking trades on the retest.
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <svg class="w-8 h-8 text-phantom-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span class="text-phantom-cyan font-bold mt-0.5">✓</span> 
                             <div>
-                                <h4 class="text-white font-bold text-lg mb-1">Liquidity Engineering</h4>
-                                <p class="text-gray-300 text-sm">We understand where retail puts their stop losses. We wait for the sweep (Inducement), then enter with the smart money.</p>
+                                <strong class="text-white block mb-1">Liquidity Engineering</strong>
+                                Understanding exactly where retail puts their stop losses. We wait for the sweep (Inducement), then enter with the smart money.
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <svg class="w-8 h-8 text-phantom-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <span class="text-phantom-cyan font-bold mt-0.5">✓</span> 
                             <div>
-                                <h4 class="text-white font-bold text-lg mb-1">Strict Prop Firm Execution</h4>
-                                <p class="text-gray-300 text-sm">Mechanical risk models designed specifically to pass Phase 1 & 2 challenges and maintain funded accounts long-term.</p>
+                                <strong class="text-white block mb-1">Prop Firm Mathematics</strong>
+                                Using strict mechanical risk models (1% risk for 5%+ reward) designed specifically to pass Prop Firm challenges and keep them.
                             </div>
                         </li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="calculator" class="py-24 bg-phantom-surface relative border-b border-phantom-border" x-data="{ 
-        accountSize: 100000, 
-        monthlyReturn: 5, 
+    <section id="calculator" class="py-24 bg-phantom-base border-b border-phantom-border relative overflow-hidden" x-data="{
+        accountSize: 100000,
+        monthlyReturn: 5,
         profitSplit: 80,
         get expectedProfit() {
             return (this.accountSize * (this.monthlyReturn / 100)) * (this.profitSplit / 100);
         }
     }">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="absolute inset-0 bg-grid-tech opacity-30 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 uppercase">The Math of <span class="text-phantom-cyan">Funding</span></h2>
-                <p class="text-xl text-gray-400">Stop trading your own $500 account. Pass a prop firm challenge and trade capital that actually scales your income. Play with the numbers below.</p>
+                <h2 class="text-sm font-bold text-phantom-blue tracking-widest uppercase mb-4">Stop Using Your Own Capital</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-black mb-4 text-white">The Math of <span class="text-gradient-blue">Funding.</span></h3>
+                <p class="text-lg text-phantom-text max-w-2xl mx-auto">Why trade a $500 personal account? Phantom teaches you how to pass Prop Firm challenges so you can trade 6-figure institutional capital. Calculate your potential payout below.</p>
             </div>
 
-            <div class="max-w-4xl mx-auto glass-card rounded-2xl p-8 md:p-12 border border-phantom-cyan/30">
-                <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid lg:grid-cols-12 gap-10 max-w-6xl mx-auto">
+                
+                <div class="lg:col-span-5 bg-phantom-surface rounded-2xl p-8 md:p-10 border border-phantom-border shadow-2xl">
+                    <h4 class="font-display font-bold text-xl mb-8 text-white">Simulation Parameters</h4>
                     
-                    <div class="space-y-8">
+                    <div class="space-y-10">
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="text-sm font-bold text-gray-300 uppercase tracking-widest">Funded Account Size</label>
-                                <span class="text-phantom-cyan font-mono font-bold" x-text="'$' + accountSize.toLocaleString()"></span>
+                            <div class="flex justify-between mb-3">
+                                <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Funded Account Size</label>
+                                <span class="text-white font-mono font-bold text-lg" x-text="'$' + accountSize.toLocaleString()"></span>
                             </div>
-                            <input type="range" x-model="accountSize" min="10000" max="300000" step="10000" class="w-full h-2 bg-phantom-panel rounded-lg appearance-none cursor-pointer accent-phantom-cyan">
-                            <div class="flex justify-between text-xs text-gray-500 mt-2 font-mono">
+                            <input type="range" x-model="accountSize" min="10000" max="300000" step="10000" class="w-full">
+                            <div class="flex justify-between text-[10px] text-gray-600 mt-2 font-mono font-bold">
                                 <span>$10k</span>
                                 <span>$300k</span>
                             </div>
                         </div>
-
+                        
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="text-sm font-bold text-gray-300 uppercase tracking-widest">Target Monthly ROI (%)</label>
-                                <span class="text-phantom-cyan font-mono font-bold" x-text="monthlyReturn + '%'"></span>
+                            <div class="flex justify-between mb-3">
+                                <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Realistic Monthly ROI</label>
+                                <span class="text-phantom-cyan font-mono font-bold text-lg" x-text="monthlyReturn + '%'"></span>
                             </div>
-                            <input type="range" x-model="monthlyReturn" min="1" max="15" step="1" class="w-full h-2 bg-phantom-panel rounded-lg appearance-none cursor-pointer accent-phantom-cyan">
-                            <p class="text-xs text-gray-500 mt-2">A realistic institutional target is 3-6% per month.</p>
+                            <input type="range" x-model="monthlyReturn" min="1" max="15" step="1" class="w-full">
+                            <p class="text-[10px] text-gray-500 mt-2 font-bold uppercase tracking-wider">Target 3-6% per month consistently.</p>
                         </div>
 
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="text-sm font-bold text-gray-300 uppercase tracking-widest">Prop Firm Profit Split</label>
-                                <span class="text-phantom-cyan font-mono font-bold" x-text="profitSplit + '%'"></span>
+                            <div class="flex justify-between mb-3">
+                                <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Prop Firm Profit Split</label>
+                                <span class="text-phantom-blue font-mono font-bold text-lg" x-text="profitSplit + '%'"></span>
                             </div>
-                            <input type="range" x-model="profitSplit" min="70" max="90" step="10" class="w-full h-2 bg-phantom-panel rounded-lg appearance-none cursor-pointer accent-phantom-cyan">
-                            <p class="text-xs text-gray-500 mt-2">Standard FTMO/MFF split is 80% to you.</p>
+                            <input type="range" x-model="profitSplit" min="50" max="90" step="10" class="w-full">
+                            <p class="text-[10px] text-gray-500 mt-2 font-bold uppercase tracking-wider">Standard FTMO/FundedEngineer split.</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="bg-phantom-panel rounded-xl border border-phantom-border p-8 flex flex-col justify-center items-center text-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-t from-phantom-blue/10 to-transparent"></div>
+                <div class="lg:col-span-7 glass-card rounded-2xl p-8 md:p-12 flex flex-col justify-center items-center text-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-phantom-blue/10 to-transparent"></div>
+                    
+                    <div class="relative z-10 w-full">
+                        <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Your Take-Home Payout</p>
+                        <div class="text-6xl md:text-8xl font-display font-black text-white mb-8 drop-shadow-2xl" x-text="'$' + expectedProfit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})"></div>
                         
-                        <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2 relative z-10">Your Monthly Take-Home Payout</p>
-                        <div class="text-6xl md:text-7xl font-display font-black text-white mb-6 relative z-10" x-text="'$' + expectedProfit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})"></div>
+                        <div class="w-full h-px bg-phantom-border my-8"></div>
                         
-                        <div class="w-full h-px bg-phantom-border my-6 relative z-10"></div>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-8">
+                            By passing a <span class="text-white font-bold" x-text="'$' + accountSize.toLocaleString()"></span> challenge and generating a conservative <span class="text-phantom-cyan font-bold" x-text="monthlyReturn + '%'"></span> return, you take home a <span class="text-phantom-blue font-bold" x-text="profitSplit + '%'"></span> split. This is how professional traders scale without risking their own life savings.
+                        </p>
                         
-                        <p class="text-sm text-gray-400 relative z-10 mb-6">Trading a <span x-text="'$' + accountSize.toLocaleString()" class="text-white font-bold"></span> account with a safe <span x-text="monthlyReturn + '%'" class="text-white font-bold"></span> return yields massive results. This is how pros scale.</p>
-                        
-                        <a href="#pricing" class="w-full block bg-phantom-cyan hover:bg-phantom-cyanDark text-phantom-bg font-display font-bold uppercase tracking-widest py-4 rounded-sm transition-colors relative z-10">
-                            Learn To Pass Challenges
+                        <a href="#pricing" class="inline-block w-full sm:w-auto px-12 py-4 bg-phantom-border hover:bg-phantom-cyan hover:text-black text-white font-bold uppercase tracking-widest rounded-lg transition-all text-sm shadow-lg">
+                            Get The Strategy To Pass
                         </a>
                     </div>
                 </div>
@@ -399,142 +485,233 @@
         </div>
     </section>
 
-    <section id="features" class="py-24 bg-tech-grid border-b border-phantom-border" x-data="{ activeTab: 'course' }">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 uppercase">The Phantom <span class="text-phantom-cyan">Ecosystem</span></h2>
-                <p class="text-xl text-gray-400">Everything you need from absolute beginner to funded institutional trader.</p>
+    <section id="curriculum" class="py-24 bg-phantom-surface border-b border-phantom-border">
+        <div class="max-w-[70rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="font-sans text-xs font-bold text-phantom-cyan tracking-widest uppercase mb-4">The Education Hub</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-black text-white mb-6">The Complete <span class="text-gradient-cyan">SMC Blueprint.</span></h3>
+                <p class="text-lg text-phantom-text max-w-2xl mx-auto">This isn't a basic PDF. The All-Access tier gives you an entire institutional curriculum from beginner basics to advanced execution modeling.</p>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button @click="activeTab = 'course'" :class="activeTab === 'course' ? 'bg-phantom-blue border-phantom-blue text-white' : 'bg-phantom-panel border-phantom-border text-gray-400 hover:text-white'" class="px-8 py-3 border font-display text-sm font-bold uppercase tracking-widest rounded-sm transition-all">
-                    Phantom Course A-Z
-                </button>
-                <button @click="activeTab = 'discord'" :class="activeTab === 'discord' ? 'bg-phantom-blue border-phantom-blue text-white' : 'bg-phantom-panel border-phantom-border text-gray-400 hover:text-white'" class="px-8 py-3 border font-display text-sm font-bold uppercase tracking-widest rounded-sm transition-all">
-                    Elite Discord Access
-                </button>
-                <button @click="activeTab = 'live'" :class="activeTab === 'live' ? 'bg-phantom-blue border-phantom-blue text-white' : 'bg-phantom-panel border-phantom-border text-gray-400 hover:text-white'" class="px-8 py-3 border font-display text-sm font-bold uppercase tracking-widest rounded-sm transition-all">
-                    Live Sessions & Markups
-                </button>
-            </div>
-
-            <div class="glass-card rounded-xl p-8 md:p-12 border border-phantom-border min-h-[400px]">
+            <div class="border-t-2 border-phantom-border" x-data="{ selected: 1 }">
                 
-                <div x-show="activeTab === 'course'" x-transition.opacity.duration.300ms class="grid md:grid-cols-3 gap-8">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 bg-phantom-cyan/10 rounded-lg flex items-center justify-center text-phantom-cyan border border-phantom-cyan/30">
-                            <span class="font-display font-bold text-xl">01</span>
+                <div class="border-b border-phantom-border">
+                    <button @click="selected !== 1 ? selected = 1 : selected = null" class="w-full py-8 flex justify-between items-center text-left focus:outline-none group transition-colors hover:bg-phantom-panel/50 px-4">
+                        <div class="flex items-center gap-6 md:gap-10">
+                            <span class="font-display font-black text-3xl md:text-4xl text-phantom-borderHl group-hover:text-phantom-cyan transition-colors duration-300 w-12">01</span>
+                            <div>
+                                <span class="font-sans text-xl md:text-2xl font-bold text-white tracking-wide">Market Structure Mastery</span>
+                            </div>
                         </div>
-                        <h4 class="text-xl font-bold text-white uppercase tracking-wider">Market Structure</h4>
-                        <p class="text-gray-400 text-sm leading-relaxed">Learn how to read true institutional order flow. Identify breaks of structure (BOS), changes of character (CHOCH), and multi-timeframe alignment so you are never trading against the main trend.</p>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 bg-phantom-blue/10 rounded-lg flex items-center justify-center text-phantom-blue border border-phantom-blue/30">
-                            <span class="font-display font-bold text-xl">02</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-white uppercase tracking-wider">Supply & Demand</h4>
-                        <p class="text-gray-400 text-sm leading-relaxed">Master the art of finding high-probability Order Blocks and Imbalances (FVGs). We teach you how to refine zones on lower timeframes for insane risk-to-reward ratios (1:5 to 1:20 R).</p>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-400 border border-purple-500/30">
-                            <span class="font-display font-bold text-xl">03</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-white uppercase tracking-wider">Liquidity Concepts</h4>
-                        <p class="text-gray-400 text-sm leading-relaxed">Understand the "why" behind price movement. Learn to spot Asian Range accumulation, London sweeps, and New York expansion phases. Stop being the liquidity, trade the sweeps.</p>
-                    </div>
-                </div>
-
-                <div x-show="activeTab === 'discord'" x-transition.opacity.duration.300ms style="display: none;">
-                    <div class="flex flex-col md:flex-row gap-12 items-center">
-                        <div class="flex-1 space-y-6">
-                            <h4 class="text-3xl font-display font-bold text-white uppercase">The War Room</h4>
-                            <p class="text-gray-400">Trading alone is the fastest way to fail. Our Discord is a highly moderated, noise-free environment where serious traders analyze the markets together.</p>
-                            <ul class="space-y-3">
-                                <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Daily pre-London and pre-NY market outlooks.</li>
-                                <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Exact chart markups and POIs (Points of Interest) shared by mentors.</li>
-                                <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Dedicated "Funded Chat" for advanced psychological support.</li>
-                                <li class="flex items-center gap-3 text-gray-300"><svg class="w-5 h-5 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Trade recaps and journal reviews to fix your mistakes.</li>
-                            </ul>
-                        </div>
-                        <div class="flex-1">
-                            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800" alt="Discord Trading" class="rounded-lg border border-phantom-border grayscale opacity-80 shadow-[0_0_30px_rgba(0,87,255,0.2)]">
+                        <svg :class="{'rotate-180 text-phantom-cyan': selected === 1}" class="w-6 h-6 text-gray-500 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="accordion-content overflow-hidden" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px; opacity: 1;' : 'max-height: 0; opacity: 0;'">
+                        <div class="pb-10 pt-2 px-4 md:pl-[7.5rem]">
+                            <div class="bg-phantom-base border border-phantom-border p-6 rounded-lg">
+                                <p class="font-sans text-sm text-gray-400 leading-relaxed mb-6">If you misread the overall trend, nothing else works. We teach you how to properly map structural swings on high timeframes so you never trade against institutional flow.</p>
+                                <ul class="space-y-4 font-sans text-sm text-gray-300">
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Break of Structure (BOS):</strong> Identifying true trend continuation vs fakeouts.</li>
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Change of Character (CHOCH):</strong> Spotting the exact moment institutions reverse the market trend.</li>
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Multi-Timeframe Alignment:</strong> Syncing the 4-Hour narrative with the 15-Minute execution.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div x-show="activeTab === 'live'" x-transition.opacity.duration.300ms style="display: none;" class="text-center max-w-3xl mx-auto">
-                    <svg class="w-20 h-20 text-red-500 mx-auto mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                    </svg>
-                    <h4 class="text-3xl font-display font-bold text-white uppercase mb-4">Watch Us Execute Live</h4>
-                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">We don't just teach hindsight. We host live webinars during active trading sessions (London/NY overlap). Watch our head mentors mark up charts, identify POIs in real-time, explain their thought process, and execute trades live. Recordings are available instantly in the vault.</p>
-                    <a href="#pricing" class="inline-block border border-phantom-cyan text-phantom-cyan hover:bg-phantom-cyan hover:text-black font-display font-bold uppercase tracking-widest px-8 py-3 rounded-sm transition-colors">
-                        Get Live Access
-                    </a>
+                <div class="border-b border-phantom-border">
+                    <button @click="selected !== 2 ? selected = 2 : selected = null" class="w-full py-8 flex justify-between items-center text-left focus:outline-none group transition-colors hover:bg-phantom-panel/50 px-4">
+                        <div class="flex items-center gap-6 md:gap-10">
+                            <span class="font-display font-black text-3xl md:text-4xl text-phantom-borderHl group-hover:text-phantom-cyan transition-colors duration-300 w-12">02</span>
+                            <div>
+                                <span class="font-sans text-xl md:text-2xl font-bold text-white tracking-wide">Supply & Demand Zones</span>
+                            </div>
+                        </div>
+                        <svg :class="{'rotate-180 text-phantom-cyan': selected === 2}" class="w-6 h-6 text-gray-500 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="accordion-content overflow-hidden" x-ref="container2" x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px; opacity: 1;' : 'max-height: 0; opacity: 0;'">
+                        <div class="pb-10 pt-2 px-4 md:pl-[7.5rem]">
+                            <div class="bg-phantom-base border border-phantom-border p-6 rounded-lg">
+                                <p class="font-sans text-sm text-gray-400 leading-relaxed mb-6">Price moves aggressively away from areas where big money enters. We teach you how to draw highly precise zones instead of vague retail support/resistance lines.</p>
+                                <ul class="space-y-4 font-sans text-sm text-gray-300">
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Order Blocks (OB):</strong> The last down-candle before an explosive up-move (and vice versa).</li>
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Fair Value Gaps (FVG) / Imbalances:</strong> Identifying areas where price delivered inefficiently and must return to mitigate.</li>
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Refining Zones:</strong> Taking a massive 4H zone and refining it down to a 5m block for a 2-pip stop loss.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-b border-phantom-border">
+                    <button @click="selected !== 3 ? selected = 3 : selected = null" class="w-full py-8 flex justify-between items-center text-left focus:outline-none group transition-colors hover:bg-phantom-panel/50 px-4">
+                        <div class="flex items-center gap-6 md:gap-10">
+                            <span class="font-display font-black text-3xl md:text-4xl text-phantom-borderHl group-hover:text-phantom-cyan transition-colors duration-300 w-12">03</span>
+                            <div>
+                                <span class="font-sans text-xl md:text-2xl font-bold text-white tracking-wide">Liquidity Concepts</span>
+                            </div>
+                        </div>
+                        <svg :class="{'rotate-180 text-phantom-cyan': selected === 3}" class="w-6 h-6 text-gray-500 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="accordion-content overflow-hidden" x-ref="container3" x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px; opacity: 1;' : 'max-height: 0; opacity: 0;'">
+                        <div class="pb-10 pt-2 px-4 md:pl-[7.5rem]">
+                            <div class="bg-phantom-base border border-phantom-border p-6 rounded-lg">
+                                <p class="font-sans text-sm text-gray-400 leading-relaxed mb-6">The holy grail of SMC. Banks need retail stop losses to fill their huge orders. Learn to spot these traps before they happen so you can trade WITH the manipulation.</p>
+                                <ul class="space-y-4 font-sans text-sm text-gray-300">
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Inducement (IDM):</strong> The fake pullback designed to bait retail early before hitting the true Order Block.</li>
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Equal Highs/Lows (EQH/EQL):</strong> Why retail double-tops are just giant magnets for price to sweep.</li>
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Session Timing:</strong> How the Asian Session builds liquidity for the London and New York sessions to sweep.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-b border-phantom-border">
+                    <button @click="selected !== 4 ? selected = 4 : selected = null" class="w-full py-8 flex justify-between items-center text-left focus:outline-none group transition-colors hover:bg-phantom-panel/50 px-4">
+                        <div class="flex items-center gap-6 md:gap-10">
+                            <span class="font-display font-black text-3xl md:text-4xl text-phantom-borderHl group-hover:text-phantom-cyan transition-colors duration-300 w-12">04</span>
+                            <div>
+                                <span class="font-sans text-xl md:text-2xl font-bold text-white tracking-wide">Entry Execution & Trade Management</span>
+                            </div>
+                        </div>
+                        <svg :class="{'rotate-180 text-phantom-cyan': selected === 4}" class="w-6 h-6 text-gray-500 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="accordion-content overflow-hidden" x-ref="container4" x-bind:style="selected == 4 ? 'max-height: ' + $refs.container4.scrollHeight + 'px; opacity: 1;' : 'max-height: 0; opacity: 0;'">
+                        <div class="pb-10 pt-2 px-4 md:pl-[7.5rem]">
+                            <div class="bg-phantom-base border border-phantom-border p-6 rounded-lg">
+                                <p class="font-sans text-sm text-gray-400 leading-relaxed mb-6">Theory doesn't make money. Execution does. We provide strict, mechanical entry rules so there is zero emotion when clicking the buy or sell button.</p>
+                                <ul class="space-y-4 font-sans text-sm text-gray-300">
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Confirmation Entries:</strong> Waiting for lower timeframe CHOCH inside a higher timeframe POI.</li>
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Risk Management:</strong> Calculating lot sizes perfectly to risk exactly 1% per trade regardless of stop loss size.</li>
+                                    <li class="flex items-start gap-3"><span class="text-phantom-cyan mt-1">✦</span> <strong>Scaling Out:</strong> Taking partial profits at key structural highs to secure the bag and manage psychology.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section class="py-24 bg-phantom-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-display font-bold uppercase text-center mb-16">The Wall of <span class="text-phantom-cyan">Funded</span> Traders</h2>
+    <section id="features" class="py-24 bg-phantom-base relative">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="font-sans text-sm font-bold text-phantom-cyan tracking-widest uppercase mb-4">Membership Tiers</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-black text-white mb-6">Inside The <span class="text-gradient-blue">Ecosystem.</span></h3>
+                <p class="text-xl text-phantom-text max-w-2xl mx-auto">Everything you need to go from unprofitable to a funded professional.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-phantom-surface border border-phantom-border p-8 rounded-2xl hover:border-phantom-cyan transition-all group">
+                    <div class="w-14 h-14 bg-phantom-base rounded-xl flex items-center justify-center border border-phantom-border mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-white mb-3">Live Market Sessions</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Watch our lead mentors mark up the charts live during the London and New York sessions. Learn how they think, react, and execute in real-time.</p>
+                </div>
+
+                <div class="bg-phantom-surface border border-phantom-border p-8 rounded-2xl hover:border-phantom-blue transition-all group">
+                    <div class="w-14 h-14 bg-phantom-base rounded-xl flex items-center justify-center border border-phantom-border mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-phantom-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-white mb-3">Daily Chart Markups</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Before the session starts, get high-probability POIs (Points of Interest) sent directly to your Discord so you know exactly where to look for setups.</p>
+                </div>
+
+                <div class="bg-phantom-surface border border-phantom-border p-8 rounded-2xl hover:border-phantom-cyan transition-all group">
+                    <div class="w-14 h-14 bg-phantom-base rounded-xl flex items-center justify-center border border-phantom-border mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-white mb-3">Trade Recaps & Case Studies</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">After the market closes, watch detailed video breakdowns of the trades that were taken that day (both wins and losses) to reinforce the strategy.</p>
+                </div>
+
+                <div class="bg-phantom-surface border border-phantom-border p-8 rounded-2xl hover:border-phantom-blue transition-all group">
+                    <div class="w-14 h-14 bg-phantom-base rounded-xl flex items-center justify-center border border-phantom-border mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-phantom-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-white mb-3">The Elite Discord Community</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Trade alongside thousands of serious, like-minded traders. Separate channels for forex, indices, crypto, and a dedicated "Funded Chat" for advanced psychology.</p>
+                </div>
+
+                <div class="bg-phantom-surface border border-phantom-border p-8 rounded-2xl hover:border-phantom-cyan transition-all group">
+                    <div class="w-14 h-14 bg-phantom-base rounded-xl flex items-center justify-center border border-phantom-border mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-phantom-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-white mb-3">Prop Firm Guidance</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Specific risk management protocols designed to pass FTMO, FundedEngineer, and MFF challenges without violating daily drawdown rules.</p>
+                </div>
+
+                <div class="bg-phantom-surface border border-phantom-border p-8 rounded-2xl hover:border-phantom-blue transition-all group">
+                    <div class="w-14 h-14 bg-phantom-base rounded-xl flex items-center justify-center border border-phantom-border mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-phantom-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-white mb-3">Notion Trading Journal</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Get access to our proprietary Notion template to track your trades, calculate your win rate, log your emotions, and refine your edge over time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proof" class="py-24 bg-phantom-surface border-y border-phantom-border">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-display font-black text-center text-white mb-16 uppercase tracking-tight">The Proof is in the <span class="text-gradient-cyan">Payouts.</span></h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-phantom-surface p-8 border border-phantom-border rounded-lg relative overflow-hidden group hover:border-phantom-cyan transition-colors">
-                    <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-phantom-blue/20 to-transparent"></div>
-                    <div class="flex items-center gap-1 text-phantom-cyan mb-4">★★★★★</div>
+                <div class="bg-phantom-base border border-phantom-border p-8 rounded-xl relative hover:border-phantom-cyan transition-colors">
+                    <div class="flex text-phantom-cyan mb-4 text-lg">★★★★★</div>
                     <p class="text-gray-300 mb-6 text-sm leading-relaxed">"Spent 2 years blowing personal accounts with retail strategies. Joined Phantom, unlearned everything, studied the SMC course for a month. Just passed my first $100k FTMO challenge today. Life changing."</p>
-                    <div class="flex items-center gap-3 border-t border-phantom-border pt-4">
-                        <div class="w-10 h-10 bg-phantom-panel rounded-full flex items-center justify-center font-bold text-gray-400">M.R</div>
+                    <div class="border-t border-phantom-border pt-4 flex justify-between items-center">
                         <div>
                             <p class="font-bold text-white text-sm">Marcus R.</p>
-                            <p class="text-[10px] text-green-400 uppercase tracking-widest font-bold">Verified $100k Funded</p>
+                            <p class="text-[10px] text-phantom-text mt-1">All-Access Member</p>
                         </div>
+                        <span class="bg-phantom-bull/20 text-phantom-bull text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">$100k Funded</span>
                     </div>
                 </div>
 
-                <div class="bg-phantom-surface p-8 border border-phantom-border rounded-lg relative overflow-hidden group hover:border-phantom-cyan transition-colors">
-                    <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-phantom-blue/20 to-transparent"></div>
-                    <div class="flex items-center gap-1 text-phantom-cyan mb-4">★★★★★</div>
+                <div class="bg-phantom-base border border-phantom-border p-8 rounded-xl relative hover:border-phantom-blue transition-colors">
+                    <div class="flex text-phantom-cyan mb-4 text-lg">★★★★★</div>
                     <p class="text-gray-300 mb-6 text-sm leading-relaxed">"The way they teach liquidity and order blocks is unmatched. The live sessions are where it really clicks. Watching the mentors execute in real-time gives you the confidence to trust the setups."</p>
-                    <div class="flex items-center gap-3 border-t border-phantom-border pt-4">
-                        <div class="w-10 h-10 bg-phantom-panel rounded-full flex items-center justify-center font-bold text-gray-400">S.T</div>
+                    <div class="border-t border-phantom-border pt-4 flex justify-between items-center">
                         <div>
                             <p class="font-bold text-white text-sm">Sarah T.</p>
-                            <p class="text-[10px] text-green-400 uppercase tracking-widest font-bold">Verified $200k Funded</p>
+                            <p class="text-[10px] text-phantom-text mt-1">All-Access Member</p>
                         </div>
+                        <span class="bg-phantom-bull/20 text-phantom-bull text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">$200k Funded</span>
                     </div>
                 </div>
 
-                <div class="bg-phantom-surface p-8 border border-phantom-border rounded-lg relative overflow-hidden group hover:border-phantom-cyan transition-colors">
-                    <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-phantom-blue/20 to-transparent"></div>
-                    <div class="flex items-center gap-1 text-phantom-cyan mb-4">★★★★★</div>
+                <div class="bg-phantom-base border border-phantom-border p-8 rounded-xl relative hover:border-phantom-cyan transition-colors">
+                    <div class="flex text-phantom-cyan mb-4 text-lg">★★★★★</div>
                     <p class="text-gray-300 mb-6 text-sm leading-relaxed">"If you're already profitable but want a tight community, the Discord is worth $55/mo alone. No egos, just pure chart analysis and high-probability POIs shared daily. The ROI is insane."</p>
-                    <div class="flex items-center gap-3 border-t border-phantom-border pt-4">
-                        <div class="w-10 h-10 bg-phantom-panel rounded-full flex items-center justify-center font-bold text-gray-400">J.K</div>
+                    <div class="border-t border-phantom-border pt-4 flex justify-between items-center">
                         <div>
                             <p class="font-bold text-white text-sm">James K.</p>
-                            <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Discord Only Member</p>
+                            <p class="text-[10px] text-phantom-text mt-1">Discord Only Member</p>
                         </div>
+                        <span class="bg-phantom-panel border border-phantom-border text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Independent</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="pricing" class="py-24 bg-phantom-bg border-t border-phantom-border relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="pricing" class="py-32 bg-phantom-base relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-phantom-cyan/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-phantom-blue/10 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-sm font-bold text-phantom-blue tracking-widest uppercase mb-4">No Contracts. Instant Access.</h2>
-                <h3 class="text-4xl md:text-5xl font-display font-bold mb-4 uppercase">Choose Your Access Level</h3>
-                <p class="text-xl text-gray-400">Delivered instantly via Whop authentication.</p>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-6 uppercase tracking-tight">Choose Your <span class="text-gradient-cyan">Edge.</span></h2>
+                <p class="text-lg text-phantom-text max-w-2xl mx-auto">No contracts. Instant access delivered via Whop authentication.</p>
             </div>
 
-            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-8">
                 
-                <div class="bg-phantom-surface border border-phantom-border rounded-xl p-8 flex flex-col h-full hover:border-phantom-cyan/50 transition-all">
+                <div class="bg-phantom-surface border border-phantom-border rounded-2xl p-8 md:p-12 flex flex-col h-full hover:border-phantom-borderHl transition-all shadow-xl">
                     <div class="mb-6">
                         <h3 class="text-2xl font-display font-bold text-white uppercase tracking-wider mb-2">Discord Only</h3>
                         <p class="text-gray-400 text-sm">For experienced SMC traders who just want the community and live setups.</p>
@@ -567,13 +744,13 @@
                         </li>
                     </ul>
                     
-                    <a href="https://whop.com/ptmtrading/ptm-discordonly?a=digitalartlab" target="_blank" class="w-full text-center border-2 border-phantom-border hover:border-phantom-cyan text-white font-display font-bold uppercase tracking-widest py-4 rounded-sm transition-all text-sm">
+                    <a href="https://whop.com/ptmtrading/ptm-discordonly?a=digitalartlab" target="_blank" class="w-full text-center btn-outline font-display font-bold uppercase tracking-widest py-5 rounded-lg text-sm">
                         Get Discord Only
                     </a>
                 </div>
 
-                <div class="glass-card border-2 border-phantom-blue rounded-xl p-8 flex flex-col h-full relative transform md:-translate-y-4 shadow-[0_0_40px_rgba(0,87,255,0.15)]">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-btn text-white font-display text-xs uppercase tracking-widest px-6 py-2 font-bold shadow-lg whitespace-nowrap">
+                <div class="glass-card rounded-2xl p-8 md:p-12 border-2 border-phantom-cyan flex flex-col h-full relative transform md:-translate-y-4 shadow-[0_0_50px_rgba(6,182,212,0.15)] z-10">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-phantom-blue to-phantom-cyan text-phantom-base font-bold px-6 py-1.5 rounded-full text-xs uppercase tracking-widest shadow-xl whitespace-nowrap">
                         The Ultimate Edge
                     </div>
                     
@@ -588,11 +765,11 @@
                     
                     <ul class="space-y-4 mb-10 flex-grow text-sm">
                         <li class="flex items-start gap-3 text-white font-medium">
-                            <svg class="w-5 h-5 text-phantom-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-phantom-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                             Complete A-Z SMC Course Curriculum
                         </li>
                         <li class="flex items-start gap-3 text-white font-medium">
-                            <svg class="w-5 h-5 text-phantom-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-phantom-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                             Live Market Execution Webinars
                         </li>
                         <li class="flex items-start gap-3 text-gray-300">
@@ -609,105 +786,115 @@
                         </li>
                     </ul>
                     
-                    <a href="https://whop.com/ptmtrading/phantomtrading?a=digitalartlab" target="_blank" class="w-full text-center bg-gradient-btn text-white font-display font-bold uppercase tracking-widest py-4 rounded-sm transition-all hover-glow-cyan text-sm">
+                    <a href="https://whop.com/ptmtrading/phantomtrading?a=digitalartlab" target="_blank" class="w-full text-center btn-cyan font-display font-bold uppercase tracking-widest py-5 rounded-lg text-sm shadow-lg">
                         Join All Access
                     </a>
                 </div>
-
             </div>
+            
+            <p class="text-center text-gray-500 text-xs mt-10 font-medium">
+                Want to book 1-on-1 Coaching? Contact admins directly inside the Premium Discord. <br>
+                <span class="text-phantom-borderHl mt-2 inline-block">Secure checkout processed by Whop.</span>
+            </p>
         </div>
     </section>
 
-    <section class="py-24 bg-tech-grid border-t border-phantom-border" x-data="{ openFaq: null }">
+    <section class="py-24 bg-phantom-surface border-t border-phantom-border" x-data="{ activeAccordion: null }">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-display font-bold uppercase text-center mb-12">Intel & Logistics</h2>
+            <h2 class="text-3xl md:text-4xl font-display font-black text-center mb-12 text-white uppercase">Inquiries & Logistics.</h2>
             
-            <div class="space-y-3">
-                <div class="bg-phantom-surface border border-phantom-border rounded-lg overflow-hidden">
-                    <button @click="openFaq = openFaq === 1 ? null : 1" class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-phantom-panel transition-colors focus:outline-none">
-                        <span class="font-bold text-white tracking-wide">I am a complete beginner. Is the $99 All Access for me?</span>
-                        <svg :class="{'rotate-180 text-phantom-cyan': openFaq === 1}" class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <div class="space-y-4">
+                
+                <div class="bg-phantom-base border border-phantom-border rounded-xl overflow-hidden transition-all duration-300 hover:border-phantom-borderHl">
+                    <button @click="activeAccordion = activeAccordion === 1 ? null : 1" class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-white text-lg">I am a complete beginner. Is the $99 All Access for me?</span>
+                        <svg :class="{'rotate-180 text-phantom-cyan': activeAccordion === 1}" class="w-6 h-6 text-gray-500 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div x-show="openFaq === 1" x-collapse>
-                        <div class="px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-phantom-border pt-4">
+                    <div x-show="activeAccordion === 1" x-collapse>
+                        <div class="px-8 pb-6 text-gray-400 text-sm leading-relaxed border-t border-phantom-border pt-4">
                             Yes. In fact, it is better if you are a beginner. You won't have to "unlearn" bad retail habits. The All Access tier includes the complete A-Z course which starts from basic terminology and builds up to advanced institutional order flow concepts.
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-phantom-surface border border-phantom-border rounded-lg overflow-hidden">
-                    <button @click="openFaq = openFaq === 2 ? null : 2" class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-phantom-panel transition-colors focus:outline-none">
-                        <span class="font-bold text-white tracking-wide">What markets do you trade?</span>
-                        <svg :class="{'rotate-180 text-phantom-cyan': openFaq === 2}" class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                <div class="bg-phantom-base border border-phantom-border rounded-xl overflow-hidden transition-all duration-300 hover:border-phantom-borderHl">
+                    <button @click="activeAccordion = activeAccordion === 2 ? null : 2" class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-white text-lg">What markets do you trade?</span>
+                        <svg :class="{'rotate-180 text-phantom-cyan': activeAccordion === 2}" class="w-6 h-6 text-gray-500 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div x-show="openFaq === 2" x-collapse>
-                        <div class="px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-phantom-border pt-4">
+                    <div x-show="activeAccordion === 2" x-collapse>
+                        <div class="px-8 pb-6 text-gray-400 text-sm leading-relaxed border-t border-phantom-border pt-4">
                             Smart Money Concepts (SMC) apply to any liquid market because human psychology and institutional algorithms operate the same way everywhere. However, our main focus and live markups are generally on Major Forex Pairs (EURUSD, GBPUSD), Gold (XAUUSD), and major Indices (US30, NAS100).
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-phantom-surface border border-phantom-border rounded-lg overflow-hidden">
-                    <button @click="openFaq = openFaq === 3 ? null : 3" class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-phantom-panel transition-colors focus:outline-none">
-                        <span class="font-bold text-white tracking-wide">Do you guarantee I will pass a prop firm challenge?</span>
-                        <svg :class="{'rotate-180 text-phantom-cyan': openFaq === 3}" class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                <div class="bg-phantom-base border border-phantom-border rounded-xl overflow-hidden transition-all duration-300 hover:border-phantom-borderHl">
+                    <button @click="activeAccordion = activeAccordion === 3 ? null : 3" class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-white text-lg">Do you guarantee I will pass a prop firm challenge?</span>
+                        <svg :class="{'rotate-180 text-phantom-cyan': activeAccordion === 3}" class="w-6 h-6 text-gray-500 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div x-show="openFaq === 3" x-collapse>
-                        <div class="px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-phantom-border pt-4">
+                    <div x-show="activeAccordion === 3" x-collapse>
+                        <div class="px-8 pb-6 text-gray-400 text-sm leading-relaxed border-t border-phantom-border pt-4">
                             No. Trading is a performance sport and involves significant risk. We provide the strategy, the exact parameters, the daily analysis, and the community support. The execution and psychological discipline are entirely up to you.
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-phantom-surface border border-phantom-border rounded-lg overflow-hidden">
-                    <button @click="openFaq = openFaq === 4 ? null : 4" class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-phantom-panel transition-colors focus:outline-none">
-                        <span class="font-bold text-white tracking-wide">Why should I join using the links on this page?</span>
-                        <svg :class="{'rotate-180 text-phantom-cyan': openFaq === 4}" class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                <div class="bg-phantom-base border border-phantom-border rounded-xl overflow-hidden transition-all duration-300 hover:border-phantom-borderHl">
+                    <button @click="activeAccordion = activeAccordion === 4 ? null : 4" class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-bold text-white text-lg">Why use the links on this website?</span>
+                        <svg :class="{'rotate-180 text-phantom-cyan': activeAccordion === 4}" class="w-6 h-6 text-gray-500 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div x-show="openFaq === 4" x-collapse>
-                        <div class="px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-phantom-border pt-4">
-                            This is an officially curated affiliate page. By using the links provided here, you are routed directly to the secure Whop checkout for Phantom Trading. We earn a small commission at zero extra cost to you, which allows us to keep analyzing and recommending the top 1% of trading communities.
+                    <div x-show="activeAccordion === 4" x-collapse>
+                        <div class="px-8 pb-6 text-gray-400 text-sm leading-relaxed border-t border-phantom-border pt-4">
+                            This is an officially curated affiliate review page. By clicking "Join All Access" here, you are routed directly to the secure Whop checkout for Phantom Trading. We earn a small commission at no extra cost to you, which helps us keep reviewing the best trading communities.
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <footer class="bg-phantom-bg border-t border-phantom-border pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-display font-bold text-white uppercase mb-6">Ready to trade with the banks?</h2>
-                <a href="https://whop.com/ptmtrading/phantomtrading?a=digitalartlab" target="_blank" class="inline-block bg-gradient-btn text-white font-display font-bold text-sm uppercase tracking-widest px-12 py-5 rounded-sm transition-all hover-glow-cyan">
-                    Join Phantom Trading
-                </a>
-            </div>
-            
-            <div class="grid lg:grid-cols-12 gap-10 border-t border-phantom-border pt-12">
-                <div class="lg:col-span-4">
-                    <div class="flex items-center gap-2 mb-4">
-                        <svg class="w-6 h-6 text-phantom-cyan" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M50 5L95 30V70L50 95L5 70V30L50 5Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="font-display font-bold text-lg tracking-widest text-white uppercase">Phantom</span>
+    <footer class="bg-phantom-base pt-20 pb-10 border-t border-phantom-border">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 border-b border-phantom-border pb-12">
+                
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-phantom-surface border border-phantom-border flex items-center justify-center">
+                            <svg class="w-5 h-5 text-phantom-cyan" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22L2 12L12 2L22 12L12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 16L6 12L12 8L18 12L12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="font-display font-black text-xl tracking-tight text-white uppercase">Phantom<span class="text-phantom-cyan">Trading</span></span>
                     </div>
-                    <p class="text-xs text-gray-500 leading-relaxed max-w-sm">
-                        An elite community dedicated to mastering Smart Money Concepts, Supply and Demand trading, and institutional order flow. Become a consistently funded trader.
+                    <p class="text-sm text-gray-500 leading-relaxed pr-8 font-medium">
+                        The ultimate infrastructure for modern institutional trading. Stop renting signals. Master Smart Money Concepts and scale with funded capital.
                     </p>
+                    <div class="mt-8">
+                        <a href="https://whop.com/ptmtrading/phantomtrading?a=digitalartlab" target="_blank" class="inline-block bg-phantom-surface border border-phantom-cyan text-phantom-cyan hover:bg-phantom-cyan hover:text-phantom-base font-bold text-xs uppercase tracking-widest px-8 py-3 rounded-lg transition-all shadow-lg">
+                            Get Access
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="lg:col-span-8 text-[11px] text-gray-500 space-y-4 leading-relaxed font-mono">
-                    <p><strong class="text-gray-400 uppercase tracking-wider">Affiliate Disclosure:</strong> This website is an independent promotional page. We contain affiliate links to Whop, meaning we may receive a commission for purchases made through our links at zero additional cost to you. This helps support our curation efforts.</p>
-                    <p><strong class="text-gray-400 uppercase tracking-wider">Risk Warning (CFTC Rule 4.41):</strong> Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not been executed, the results may have under-or-over compensated for the impact, if any, of certain market factors, such as lack of liquidity. No representation is being made that any account will or is likely to achieve profit or losses similar to those shown. Trading involves high risk and you can lose your entire investment.</p>
-                    <p><strong class="text-gray-400 uppercase tracking-wider">Not Financial Advice:</strong> Information provided inside the Phantom Trading community, Discord, and course is for educational purposes only and should not be construed as financial advice.</p>
+                <div class="lg:col-span-7">
+                    <div class="text-[11px] text-gray-500 space-y-4 leading-relaxed font-semibold uppercase tracking-wider font-sans">
+                        <p><strong class="text-gray-400">Affiliate Disclosure:</strong> This website operates as an independent affiliate partner. We earn a commission when you purchase Whop access via the links on this page. This does not affect the price you pay and helps support our curation platform.</p>
+                        <p><strong class="text-gray-400">Earnings & Risk Disclaimer:</strong> Trading forex, indices, and crypto carries a high level of risk and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. The profit margins, ROIs, and funded account examples shown on this site (including the calculator simulator) are for illustrative purposes to explain the prop firm business model. We do not guarantee that you will make money or pass a challenge. Past success of community members does not guarantee your future results. All subscriptions are processed securely via Whop.</p>
+                    </div>
                 </div>
+                
             </div>
             
-            <div class="flex flex-col md:flex-row justify-between items-center mt-12 pt-8 border-t border-phantom-border text-xs text-gray-600 uppercase tracking-widest">
+            <div class="flex flex-col md:flex-row justify-between items-center mt-10 font-sans text-xs text-gray-600 font-bold uppercase tracking-widest">
                 <p>&copy; 2026 Phantom Trading Affiliates. All Rights Reserved.</p>
-                <p class="mt-2 md:mt-0 flex items-center gap-2">
-                    <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                    Secure Checkout Powered By Whop
+                <p class="mt-4 md:mt-0 flex items-center gap-2 text-phantom-text">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Secure Checkout Powered by Whop
                 </p>
             </div>
         </div>
